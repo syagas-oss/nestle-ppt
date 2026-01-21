@@ -1,5 +1,5 @@
 
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages3
 
 on:
   push:
@@ -21,10 +21,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # Eliminamos 'cache: npm' temporalmente porque requiere package-lock.json existente
+          # Importante: No definimos 'cache' para evitar el error del lockfile
 
       - name: Install Dependencies
-        # Usamos 'install' en lugar de 'ci' para que genere el package-lock.json si falta
         run: npm install
 
       - name: Build
